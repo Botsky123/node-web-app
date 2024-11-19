@@ -2,8 +2,10 @@ version: '3.8'
 
 services:
   nodejs-app:
-    build: .
-    container_name: nodejs-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nodejs-mongo-app:latest  # Match IMAGE_NAME in the pipeline
     ports:
       - "3000:3000"
     depends_on:
